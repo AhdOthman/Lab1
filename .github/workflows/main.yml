@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: GitHub Action for Android Lint
-      - uses: yutailang0119/action-android-lint@v1.0.2
+        uses: yutailang0119/action-android-lint@v1.0.2
         with: 
            xml_path: build/reports/lint-results.xml 
         
