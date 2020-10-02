@@ -21,10 +21,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: GitHub Action for Android Lint
-        uses: yutailang0119/action-android-lint@v1.0.2
-        with: 
-           xml_path: build/reports/lint-results.xml 
+        name: Checkstyle job
+        steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run check style
+        uses: nikitasavinov/checkstyle-action@master
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         reporter: 'github-pr-check'
+         tool_name: 'testtool'
         
 # Runs a single command using the runners shell
       - name: Run a one-line script
